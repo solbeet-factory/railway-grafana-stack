@@ -9,6 +9,6 @@ scrape_configs:
 
   - job_name: 'postgres'
     static_configs:
-      - targets: ['postgres-exporter.railway.internal:9187']
+      - targets: ['affectionate-abundance.railway.internal:9187']
     scrape_interval: 15s
     scrape_timeout: 10s
