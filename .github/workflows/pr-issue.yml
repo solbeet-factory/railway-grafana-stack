@@ -1,0 +1,17 @@
+name: PR con issue
+
+# Bloqueo: falla si el PR no cuelga de un issue (ci-workflows#72). Regla y
+# excepciones (bots, `deploy(`, label `sin-issue`): solbeet-factory/ci-workflows
+# flujo/README.md («PR con issue»).
+on:
+  pull_request:
+    types: [opened, edited, synchronize, labeled, unlabeled, reopened]
+permissions: {}
+jobs:
+  pr-issue:
+    permissions:
+      pull-requests: write
+    uses: solbeet-factory/ci-workflows/.github/workflows/flujo-pr-issue.yml@e53722e688eb1a1ec44f5b4f9da226f8832cd4ec
+    with:
+      modo: bloqueo
+      runner_label: ubuntu-latest
